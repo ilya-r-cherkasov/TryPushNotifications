@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let notificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        requestAutorization()
         return true
     }
 
@@ -25,12 +26,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    func requestAutorization() {
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, error in
+            print("Права даны: \(granted)")
+            
+            guard granted else { return }
+            self?.getNotificationsSettings()
+        }
     }
-
-
+    
+    func getNotificationsSettings() {
+        notificationCenter.getNotificationSettings { settings in
+            print("Настройки уведомления: \(settings)")
+        }
+    }
+    
+    func scheduleNotification(notificationType: String) {
+        let content = UNMutableNotificationContent()
+        content.title = notificationType
+        content.body = "Создано: " + notificationType
+        content.sound = .default
+        content.badge = 1 //количество непрочитанных сообщений
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let identifire = "Local Notification"
+        let request = UNNotificationRequest(identifier: identifire,
+                                            content: content,
+                                            trigger: trigger)
+        notificationCenter.add(request) { error in
+            print("Error: \(String(describing: error?.localizedDescription))")
+        }
+    }
 }
 

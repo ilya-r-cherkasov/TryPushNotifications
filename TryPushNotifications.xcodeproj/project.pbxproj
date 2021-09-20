@@ -13,6 +13,7 @@
 		BAE194E426F8ABAA0001FBA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE194E226F8ABAA0001FBA9 /* Main.storyboard */; };
 		BAE194E626F8ABAE0001FBA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE194E526F8ABAE0001FBA9 /* Assets.xcassets */; };
 		BAE194E926F8ABAE0001FBA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAE194E726F8ABAE0001FBA9 /* LaunchScreen.storyboard */; };
+		BAE194F226F8AD6E0001FBA9 /* NotificationsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE194F126F8AD6E0001FBA9 /* NotificationsType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BAE194E526F8ABAE0001FBA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE194E826F8ABAE0001FBA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE194EA26F8ABAE0001FBA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAE194F126F8AD6E0001FBA9 /* NotificationsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		BAE194DB26F8ABAA0001FBA9 /* TryPushNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				BAE194F026F8AC980001FBA9 /* ViewController */,
 				BAE194DC26F8ABAA0001FBA9 /* AppDelegate.swift */,
 				BAE194DE26F8ABAA0001FBA9 /* SceneDelegate.swift */,
-				BAE194E026F8ABAA0001FBA9 /* ViewController.swift */,
 				BAE194E226F8ABAA0001FBA9 /* Main.storyboard */,
 				BAE194E526F8ABAE0001FBA9 /* Assets.xcassets */,
 				BAE194E726F8ABAE0001FBA9 /* LaunchScreen.storyboard */,
 				BAE194EA26F8ABAE0001FBA9 /* Info.plist */,
 			);
 			path = TryPushNotifications;
+			sourceTree = "<group>";
+		};
+		BAE194F026F8AC980001FBA9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BAE194F126F8AD6E0001FBA9 /* NotificationsType.swift */,
+				BAE194E026F8ABAA0001FBA9 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 				BAE194E126F8ABAA0001FBA9 /* ViewController.swift in Sources */,
 				BAE194DD26F8ABAA0001FBA9 /* AppDelegate.swift in Sources */,
 				BAE194DF26F8ABAA0001FBA9 /* SceneDelegate.swift in Sources */,
+				BAE194F226F8AD6E0001FBA9 /* NotificationsType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65HCRGU5FA;
 				INFOPLIST_FILE = TryPushNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65HCRGU5FA;
 				INFOPLIST_FILE = TryPushNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
